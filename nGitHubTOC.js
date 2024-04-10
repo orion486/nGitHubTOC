@@ -31,7 +31,7 @@ function tocIt(inputMD, minHeading, maxHeading, ignoreLinex)
 
             headingLevel -= minHeading;
           
-            var headingAnchor = headingTitle.toLowerCase().replace(/[^_0-9a-z\xE0-\xFF- ]/g, "").replace(/_(?=.*)/g, "").replace(/\*(?=.*)/g, "").replace(/ /g, "-");
+            var headingAnchor = headingTitle.toLowerCase().replace(/[^_*0-9a-z\xE0-\xFF- ]/g, "").replace(/_{1,2}(.+?)_{1,2}/g, "$1").replace(/\*{1,3}(.+?)\*{1,3}/g, "$1").replace(/ /g, "-");
           
             if(headingAnchor in anchorTracker)
             {
